@@ -1,4 +1,92 @@
+/* -Розмітка і класи-
+
+Клас
+.семантичний блок (section-"NAME")-елемент_призначення (не обов'язково)
+
+Призначення: 
+_page, _descr, _text, _info
+_icon, _photo, _img
+_data, _phone, _mail, _contacts, _name, _logo
+_net, _link
+_ext, _next
+
+-Секції section:
+.header
+.section-hero
+.toggle (мобільне меню)
+.section-about
+.section-benefits
+.section-solutions /cases/
+.section-blog
+.section-team /management/
+.footer
+.modal (модальне вікно)
+
+-Контейнер, обгортки, списки: 
+section   .section-"NAME"
+container .section-"NAME"-container
+nav       .section-"NAME"-nav
+address   .section-"NAME"-address
+div       .section-"NAME"-block (або box)_призначення
+ul,ol     .section-"NAME"-list_призначення
+li        .section-"NAME"-item_призначення
+span      .section-"NAME"-елемент_призначення
+
+-Посилання  a:
+.section-"NAME"-link_page (сторінка)
+.section-"NAME"-link_logo (лого)
+.section-"NAME"-logo_ext (лого /extension/ продовження)
+.section-"NAME"-link_net (соц. мережа)
+.section-"NAME"-link_phone (тел.)
+.section-"NAME"-link_mail (пошта)
+.section-"NAME"-link_data (дані)
+.section-"NAME"-link_contacts (контакти)
+:hover,:focus
+
+-Заголовки title: 
+h1       .section-hero-title
+h2       .section-"NAME"(або без им'я)-title (заголовки секцій)
+h3       .section-"NAME"(або без им'я)-subtitle (підзаголовки секцій)
+h4       .section-"NAME"(або без им'я)-title_descr (заголовки опису /description/)
+h4,h5    .section-"NAME"(або без им'я)-title_photo (заголовки фото)
+h4,h5,h6 .section-"NAME"(або без им'я)-title_data (заголовки даних)
+h4,h5,h6 .section-"NAME"(або без им'я)-title_text (заголовки текту)
+
+-Текст p: 
+.section-"NAME"-text_призначення
+
+-Кнопки button:
+.section-"NAME"-btn_descr (докладний опис секції /type="button"/)
+.section-"NAME"-btn_send (відправлення даних форми /type="submit"/)
+.section-"NAME"-btn_toggle (мобільне меню /type="button"/)
+.section-"NAME"-btn_modal (модальне вікно /type="button"/)
+.section-"NAME"-btn_buy (купити /type="button"/)
+:hover,:focus
+
+Форми і чекбокси:
+.section-"NAME"-checkbox_призначення
+form   .section-"NAME"-form_призначення
+label  .section-"NAME"-label_призначення
+input  .section-"NAME"-input_призначення
+:hover,:focus
+
+-@media:
+для tablet і desktop у кінці кожної секції;
+для ретини 2х зразу після 1х 
+
+Фото і іконки:
+./images/"NAME"(секції)/...jpg,png
+./images/icons.svg
+
+_____________________________________________________________________ */
+
 /* BODY */
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
 
 .section-title {
   font-weight: 300;
@@ -10,28 +98,142 @@
   font-weight: 400;
   font-size: 32px;
   line-height: 1.32;
-  color: #28a745;
+  color: #fff;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
-/* section-topline HEADER */
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
 
-.section-topline-container {
+/* header HEADER */
+
+.header {
+  max-width: 320px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.header-container {
   max-width: 320px;
   padding-left: 22px;
   padding-right: 22px;
 }
 
-.section-topline {
-  max-width: 320px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin: 0 auto;
+.header-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.section-topline,
+.header-box_icon {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2.39px;
+}
+
+.header-icon_logo {
+  fill: #28a745;
+}
+
+.header-logo {
+  color: #28a745;
+}
+
+.header-list_page {
+  display: flex;
+  gap: 12px;
+}
+
+.header-link_page {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+  cursor: pointer;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.header-link_page:hover,
+.header-link_page:focus {
+  color: #28a745;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    max-width: 768px;
+  }
+
+  .header-container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .header-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 35px;
+    line-height: 1.21;
+  }
+
+  .header-box_icon {
+    margin-right: 9px;
+  }
+
+  .header-logo {
+    margin-right: 9px;
+  }
+  .header-list_page {
+    gap: 20px;
+  }
+
+  .header-link_page {
+    font-size: 18px;
+    line-height: 1.56;
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  .header {
+    max-width: 1360px;
+  }
+
+  .header-container {
+    max-width: 1360px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .header-list_page {
+    gap: 40px;
+  }
+}
+
+/* section HERO */
+
 .section-hero {
+  padding-top: 142px;
+  padding-bottom: 96px;
+  max-width: 320px;
+  margin: 0 auto;
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.5),
@@ -41,13 +243,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .section-topline,
   .section-hero {
     background-image: linear-gradient(
         to bottom,
@@ -56,150 +256,6 @@
       ),
       url("../images/hero-img/bg-mob-@2x-min.jpg");
   }
-}
-
-.section-topline-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
-
-.section-topline-box {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 2.39px;
-}
-
-.section-topline-icon {
-  fill: #28a745;
-}
-
-.section-topline-logo_ext {
-  color: #fff;
-}
-
-.section-topline-page {
-  display: flex;
-  gap: 12px;
-}
-
-.section-topline-link {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #fff;
-  cursor: pointer;
-}
-
-.section-topline-link:hover,
-.section-topline-link:focus {
-  color: #28a745;
-}
-
-@media screen and (min-width: 768px) {
-  .section-topline {
-    max-width: 768px;
-  }
-
-  .section-topline-container {
-    max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  .section-topline-nav {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .logo {
-    font-size: 35px;
-    line-height: 1.21;
-  }
-
-  .section-topline-link {
-    font-size: 18px;
-    line-height: 1.56;
-  }
-
-  .section-topline,
-  .section-hero {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url(../images/hero-img/bg-tab-@1x-min.jpg);
-    max-width: 768px;
-  }
-
-  @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .section-topline,
-    .section-hero {
-      background-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.5)
-        ),
-        url(../images/hero-img/bg-tab-@2x-min.jpg);
-    }
-  }
-}
-
-@media screen and (min-width: 1360px) {
-  .section-topline {
-    max-width: 1360px;
-  }
-
-  .section-topline-container {
-    max-width: 1360px;
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-
-  .section-topline,
-  .section-hero {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url(../images/hero-img/bg-desk-@1x-min.jpg);
-    max-width: 1360px;
-  }
-
-  @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .section-topline,
-    .section-hero {
-      background-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.5)
-        ),
-        url(../images/hero-img/bg-desk-@2x-min.jpg);
-    }
-  }
-}
-
-/* section HERO */
-
-.section-hero {
-  padding-top: 20px;
-  padding-bottom: 96px;
-  /* background-image: url("../images/hero-img/bg-mob-@1x-min.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
-  max-width: 320px;
-  margin: 0 auto;
 }
 
 .section-hero-container {
@@ -218,7 +274,7 @@
   margin-bottom: 20px;
 }
 
-.section-hero-text {
+.section-hero-subtitle {
   font-weight: 400;
   font-size: 22px;
   line-height: 1.67273;
@@ -253,9 +309,29 @@
 @media screen and (min-width: 768px) {
   .section-hero {
     max-width: 768px;
-    padding-top: 324px;
+    padding-top: 407px;
     padding-bottom: 410px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/hero-img/bg-tab-@1x-min.jpg);
   }
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .section-hero {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url(../images/hero-img/bg-tab-@2x-min.jpg);
+    }
+  }
+
   .section-hero-container {
     max-width: 768px;
     padding-left: 134px;
@@ -273,13 +349,141 @@
 @media screen and (min-width: 1360px) {
   .section-hero {
     max-width: 1360px;
-    padding-top: 210px;
+    padding-top: 279px;
     padding-bottom: 282px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/hero-img/bg-desk-@1x-min.jpg);
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .section-hero {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url(../images/hero-img/bg-desk-@2x-min.jpg);
+    }
   }
 
   .section-hero-container {
     max-width: 1360px;
     padding-left: 431px;
     padding-right: 436px;
+  }
+}
+
+/* section SOLUTIONS */
+
+.section-solutions {
+  max-width: 320px;
+  margin: 0 auto;
+  background-color: #28a745;
+}
+
+.section-solutions-block_descr {
+  padding-top: 40px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 40px;
+}
+
+.section-solutions-subtitle {
+  font-weight: 400;
+  line-height: 1.66;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.section-solutions-title {
+  font-weight: 300;
+  font-size: 38px;
+  line-height: 1.26;
+  margin-bottom: 24px;
+}
+
+.text {
+  margin-bottom: 24px;
+}
+
+.section-solutions-btn_descr {
+  display: block;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  width: 158px;
+  height: 47px;
+  background: #28a745;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.section-solutions-btn_descr:hover,
+.section-solutions-btn_descr:focus {
+  background-color: #126425;
+}
+
+@media screen and (min-width: 768px) {
+  .section-solutions {
+    max-width: 768px;
+  }
+
+  .section-solutions-container {
+    display: flex;
+  }
+
+  .section-solutions-block_photo {
+    flex-shrink: 0;
+  }
+
+  .section-solutions-block_descr {
+    padding-right: 53px;
+    padding-left: 32px;
+  }
+
+  .section-solutions-subtitle {
+    font-size: 20px;
+    line-height: 1.65;
+  }
+
+  .section-solutions-title {
+    max-width: 204px;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 1.56;
+  }
+
+  .section-solutions-btn_descr {
+    width: 167px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 1.56;
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  .section-solutions {
+    max-width: 1360px;
+  }
+
+  .section-solutions-block_descr {
+    padding-top: 80px;
+    padding-right: 64px;
+    padding-left: 20px;
+    padding-bottom: 80px;
+  }
+
+  .section-solutions-title {
+    max-width: 541px;
   }
 }
