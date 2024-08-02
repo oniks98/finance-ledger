@@ -1,17 +1,21 @@
-/* -Розмітка і класи-
+/* 
+-Розмітка і класи-
 
 Клас
-class="блок section-NAME(семантичний блок)-елемент_призначення (не обов'язково)"
+class="блок section-NAME(семантичний блок)-елемент_призначення"
+або
+class="section-NAME(семантичний блок)-елемент_призначення"
 
 -Секція, контейнер, обгортка, список: 
 section   .section-NAME
 container .section-NAME-container
 nav       .section-NAME-nav
 address   .section-NAME-address
+form      .section-NAME-form_призначення
 div       .section-NAME-block_призначення
 div       .section-NAME-box_призначення
 span      .section-NAME-елемент_призначення
-ul,ol     .section-NAME-list_призначення
+ul        .section-NAME-list_призначення
 li        .section-NAME-item_призначення
 
 Призначення: 
@@ -20,18 +24,16 @@ _icon, _photo, _img
 _data, _phone, _mail, _contacts, _name, _logo
 _net, _link
 _ext, _next
+_form, _input, _field
 
 -Секції section:
 .header
-.section-hero /promo/
-.toggle (мобільне меню)
-.section-about
-.section-benefits
-.section-solutions /cases/
+.section-hero
+.section-solutions
+.section-cases
 .section-blog
-.section-team /management/
+.section-team
 .footer
-.modal (модальне вікно)
 
 -Посилання  <a>:
 .section-NAME-link_page (сторінка)
@@ -48,8 +50,8 @@ _ext, _next
 h1       .title
 h2       .section-NAME-title (заголовки секцій)
 h3       .section-NAME-subtitle (підзаголовки секцій)
-h4       .section-NAME-title_descr (заголовки опису /description/)
-h4,h5    .section-NAME-title_photo (заголовки фото)
+h4,h5,h6 .section-NAME-title_descr (заголовки опису /description/)
+h4,h5,h6 .section-NAME-title_photo (заголовки фото або _img малюнків i _icon іконок)
 h4,h5,h6 .section-NAME-title_data (заголовки даних)
 h4,h5,h6 .section-NAME-title_text (заголовки текту)
 
@@ -57,18 +59,15 @@ h4,h5,h6 .section-NAME-title_text (заголовки текту)
 .section-NAME-text_призначення
 
 -Кнопки <button>:
-.section-NAME-btn_descr (до опису секції (блока) /type="button"/)
-.section-NAME-btn_send (відправлення даних /type="submit"/)
-.section-NAME-btn_toggle (мобільне меню /type="button"/)
-.section-NAME-btn_modal (модальне вікно /type="button"/)
+.section-NAME-btn_descr (до детального опису)
+.section-NAME-btn_send (відправлення даних)
 :hover,:focus
 
 Форми і чекбокси:
-.section-NAME-checkbox_призначення
-form   .section-NAME-form_призначення
-label  .section-NAME-label_призначення
-input  .section-NAME-input_призначення
-:hover,:focus
+form     .section-NAME-form_призначення
+label    .section-NAME-label_призначення
+input    .section-NAME-input_призначення
+:focus
 
 -@media:
 для tablet і desktop у кінці кожної секції;
@@ -78,7 +77,8 @@ input  .section-NAME-input_призначення
 ./images/NAME(секції)/...jpg,png
 ./images/icons.svg
 
-_____________________________________________________________________ */
+_____________________________________________
+*/
 
 /* BODY */
 
@@ -145,7 +145,6 @@ body {
 }
 
 .header-container {
-  max-width: 320px;
   padding-left: 22px;
   padding-right: 22px;
 }
@@ -198,7 +197,6 @@ body {
   }
 
   .header-container {
-    max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -237,7 +235,6 @@ body {
   }
 
   .header-container {
-    max-width: 1360px;
     padding-left: 28px;
     padding-right: 28px;
   }
@@ -282,7 +279,6 @@ body {
   padding-left: 39px;
   padding-right: 40px;
   margin: 0 auto;
-  max-width: 320px;
 }
 
 .section-hero-subtitle {
@@ -338,7 +334,6 @@ body {
   }
 
   .section-hero-container {
-    max-width: 768px;
     padding-left: 134px;
     padding-right: 141px;
   }
@@ -378,7 +373,6 @@ body {
   }
 
   .section-hero-container {
-    max-width: 1360px;
     padding-left: 431px;
     padding-right: 436px;
   }
@@ -407,9 +401,6 @@ body {
 }
 
 .section-solutions-title {
-  font-weight: 300;
-  font-size: 38px;
-  line-height: 1.26;
   margin-bottom: 24px;
 }
 
@@ -520,9 +511,6 @@ body {
 }
 
 .section-cases-title {
-  font-weight: 300;
-  font-size: 38px;
-  line-height: 1.26;
   text-align: center;
   color: #333;
   margin-bottom: 20px;
@@ -727,9 +715,6 @@ body {
 }
 
 .section-team-title {
-  font-weight: 300;
-  font-size: 38px;
-  line-height: 1.26;
   text-align: center;
   color: #333;
   margin-bottom: 20px;
@@ -887,6 +872,12 @@ body {
   padding-top: 9px;
   padding-bottom: 7px;
   padding-left: 8px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-input_data:focus {
+  border-color: #28a745;
 }
 
 .footer-list_input {
@@ -901,7 +892,7 @@ body {
   margin-bottom: 0;
 }
 
-.footer-button_send {
+.footer-btn_send {
   border-radius: 5px;
   width: 280px;
   height: 42px;
@@ -911,8 +902,8 @@ body {
   color: #fff;
 }
 
-.footer-button_send:hover,
-.footer-button_send:focus {
+.footer-btn_send:hover,
+.footer-btn_send:focus {
   background-color: #126425;
 }
 
@@ -948,6 +939,64 @@ body {
   .footer-block_form {
     padding-right: 32px;
     padding-left: 32px;
-    background-color: #f4f4f4;
+  }
+
+  .footer-title {
+    max-width: 305px;
+  }
+
+  .footer-input_data {
+    line-height: 1.56;
+    width: 324px;
+  }
+
+  .footer-btn_send {
+    width: 336px;
+    font-size: 18px;
+  }
+
+  .footer-block_net {
+    padding-right: 240px;
+    padding-left: 241px;
+  }
+
+  .footer-text {
+    line-height: 1.56;
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  .footer {
+    max-width: 1360px;
+  }
+
+  .footer-block_callback {
+    padding-bottom: 0;
+  }
+
+  .footer-block_form {
+    padding-top: 80px;
+    padding-right: 28px;
+    padding-bottom: 80px;
+    padding-left: 20px;
+  }
+
+  .footer-input_data {
+    line-height: 1.56;
+    width: 620px;
+  }
+
+  .footer-list_input {
+    margin-bottom: 60px;
+  }
+
+  .footer-btn_send {
+    width: 642px;
+    font-size: 18px;
+  }
+
+  .footer-block_net {
+    padding-right: 537px;
+    padding-left: 537px;
   }
 }
